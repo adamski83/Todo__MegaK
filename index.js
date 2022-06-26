@@ -10,9 +10,6 @@ const dbUrl =
 	"mongodb+srv://admin:12345@cluster0.ykrfi.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// app.engine("handlebars", engine());
-// app.set("view engine", "handlebars");
-// app.set("views", "./views");
 app.set("view engine", "ejs");
 app.use(express.static("./public"));
 app.use(express.urlencoded({ extended: true }));
