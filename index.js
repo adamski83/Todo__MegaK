@@ -15,25 +15,9 @@ app.use(express.static("./public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/", async (req, res) => {
-	const searchRes = await Todo.find({}).then((result) => {
-		res.render("index", { data: result });
-		console.log(result);
-	});
-});
+const tasksRouter = require("./routes/task");
 
-app.post("/", (req, res) => {
-	const todo = new Todo({
-		todo: req.body.todoValue,
-	});
-
-	todo.save().then((result) => {
-		res.redirect("/");
-	});
-});
-app.delete("/:id", async (req, res) => {
-	Todo.findByIdAndDelete(req.params.id).then((result) => console.log(result));
-});
+app.use("/", tasksRouter);
 
 app.listen(port, () =>
 	console.log(`Application running on potra ${port}: http://localhost:3000`)
