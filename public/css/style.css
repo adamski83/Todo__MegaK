@@ -63,8 +63,13 @@ button {
 	padding: 4px 6px;
 	background-color: #d36262;
 	border-radius: 15px;
+	cursor: pionter;
 }
 p {
 	font-size: 26px;
 	color: rgb(174, 97, 226);
+}
+button,
+.todo-delete {
+	cursor: pointer;
 }
