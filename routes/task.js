@@ -9,14 +9,13 @@ router.get("/", async (req, res) => {
 	});
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
 	const todo = new Todo({
 		todo: req.body.todoValue,
 	});
 
-	todo.save().then((result) => {
-		res.redirect("/");
-	});
+	await todo.save();
+	res.redirect("/");
 });
 router.delete("/:id", async (req, res) => {
 	Todo.findByIdAndDelete(req.params.id).then((result) => console.log(result));
