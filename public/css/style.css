@@ -68,3 +68,7 @@ p {
 	font-size: 26px;
 	color: rgb(174, 97, 226);
 }
+button,
+.todo-delete {
+	cursor: pointer;
+}
