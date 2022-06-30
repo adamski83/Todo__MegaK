@@ -3,7 +3,7 @@ const app = express();
 const { engine } = require("express-handlebars");
 const mongoose = require("mongoose");
 const Todo = require("./models/todo");
-const port = 3000;
+const PORT = 3000;
 
 // const dbUrl = "mongodb://localhost:27017/tododb";
 const dbUrl =
@@ -19,6 +19,6 @@ const tasksRouter = require("./routes/task");
 
 app.use("/", tasksRouter);
 
-app.listen(port, () =>
-	console.log(`Application running on potra ${port}: http://localhost:3000`)
+app.listen(process.env.PORT || PORT, () =>
+	console.log(`Application running on port ${PORT}: http://localhost:3000`)
 );
